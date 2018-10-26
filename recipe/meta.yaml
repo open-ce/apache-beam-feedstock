@@ -72,8 +72,8 @@ test:
     - apache_beam.testing
     - apache_beam.testing.benchmarks
     - apache_beam.testing.benchmarks.nexmark
-    - apache_beam.testing.benchmarks.models
-    - apache_beam.testing.benchmarks.queries
+    - apache_beam.testing.benchmarks.nexmark.models
+    - apache_beam.testing.benchmarks.nexmark.queries
     - apache_beam.tools
     - apache_beam.transforms
     - apache_beam.typehints
