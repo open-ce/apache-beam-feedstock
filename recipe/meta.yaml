@@ -56,7 +56,7 @@ test:
     - apache_beam.io.gcp
     - apache_beam.io.gcp.datastore
     - apache_beam.io.gcp.internal
-    - apache_beam.io.gcp.test
+    - apache_beam.io.gcp.tests
     - apache_beam.metrics
     - apache_beam.options
     - apache_beam.portability
