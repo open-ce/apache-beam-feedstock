@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.5.0" %}
+{% set version = "2.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: a1ce8cd868922d89f834692f85d341ae23c95ea535144ee603de4608651fd635
+  sha256: e51e13c413f25cd4e273f5605f643e0ea88533f255c9676760e975b44a90cec1
 
 build:
   number: 0
@@ -24,14 +24,15 @@ requirements:
     - python
     - python-avro >=1.8.1,<2.0.0
     - crcmod >=1.7,<2.0
-    - dill 0.2.6
+    - dill >=0.2.6,<=0.2.8.2
     - grpcio >=1.8,<2
     - python-hdfs >=2.1.0,<3.0.0
-    - httplib2 >=0.8,<0.10
+    - httplib2 >=0.8,<=0.11.3
     - mock >=1.0.1,<3.0.0
     - oauth2client >=2.0.1,<5
     - protobuf >=3.5.0.post1,<4
-    - pytz >=2018.3
+    - pydot >=1.2.0,<1.3
+    - pytz >=2018.3,<=2018.4
     - pyyaml >=3.12,<4.0.0
     - pyvcf >=0.6.8,<0.7.0
     - six >=1.9,<1.12
@@ -55,18 +56,24 @@ test:
     - apache_beam.io.gcp
     - apache_beam.io.gcp.datastore
     - apache_beam.io.gcp.internal
+    - apache_beam.io.gcp.tests
     - apache_beam.metrics
     - apache_beam.options
     - apache_beam.portability
+    - apache_beam.portability.api
     - apache_beam.runners
     - apache_beam.runners.dataflow
     - apache_beam.runners.direct
-    - apache_beam.runners.experimental
+    - apache_beam.runners.interactive
     - apache_beam.runners.job
     - apache_beam.runners.portability
     - apache_beam.runners.test
     - apache_beam.runners.worker
     - apache_beam.testing
+    - apache_beam.testing.benchmarks
+    - apache_beam.testing.benchmarks.nexmark
+    - apache_beam.testing.benchmarks.nexmark.models
+    - apache_beam.testing.benchmarks.nexmark.queries
     - apache_beam.tools
     - apache_beam.transforms
     - apache_beam.typehints
