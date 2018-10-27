@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.6.0" %}
+{% set version = "2.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: e51e13c413f25cd4e273f5605f643e0ea88533f255c9676760e975b44a90cec1
+  sha256: 91d2e23abf42713306499bede256682f2dd717b9964dffc6d7ac3a55de4c0e71
 
 build:
   number: 0
@@ -25,6 +25,7 @@ requirements:
     - python-avro >=1.8.1,<2.0.0
     - crcmod >=1.7,<2.0
     - dill >=0.2.6,<=0.2.8.2
+    - fastavro ==0.19.7
     - grpcio >=1.8,<2
     - python-hdfs >=2.1.0,<3.0.0
     - httplib2 >=0.8,<=0.11.3
