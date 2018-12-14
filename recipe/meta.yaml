@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.8.0" %}
+{% set version = "2.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: da8013bb5387157e6ed75f57cb6bfdde36cf9db721e97300f1613fc5afe93492
+  sha256: f2d98c7193b377f83795e6ddbc46e36a1c91262af239be036e559080022a7e3f
 
 build:
   number: 0
@@ -19,13 +19,16 @@ requirements:
     - {{ compiler('c') }}
   host:
     - python
+    - cython
     - pip
   run:
     - python
+    - cython
     - python-avro >=1.8.1,<2.0.0
     - crcmod >=1.7,<2.0
     - dill >=0.2.6,<=0.2.8.2
     - fastavro >=0.21.4,<0.22
+    - pyarrow >=0.11.1,<0.12.0
     - grpcio >=1.8,<2
     - python-hdfs >=2.1.0,<3.0.0
     - httplib2 >=0.8,<=0.11.3
@@ -50,10 +53,12 @@ test:
     - apache_beam.examples.complete.juliaset
     - apache_beam.examples.complete.juliaset.juliaset
     - apache_beam.examples.cookbook
+    - apache_beam.examples.flink    
     - apache_beam.examples.snippets
     - apache_beam.internal
     - apache_beam.internal.gcp
     - apache_beam.io
+    - apache_beam.io.flink
     - apache_beam.io.gcp
     - apache_beam.io.gcp.datastore
     - apache_beam.io.gcp.internal
@@ -66,6 +71,7 @@ test:
     - apache_beam.runners.dataflow
     - apache_beam.runners.direct
     - apache_beam.runners.interactive
+    - apache_beam.runners.interactive.display
     - apache_beam.runners.job
     - apache_beam.runners.portability
     - apache_beam.runners.test
