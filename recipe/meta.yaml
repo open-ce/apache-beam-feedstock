@@ -26,6 +26,7 @@ requirements:
     - crcmod >=1.7,<2.0
     - dill >=0.2.6,<=0.2.8.2
     - fastavro >=0.21.4,<0.22
+    - pyarrow >=0.11.1,<0.12.0
     - grpcio >=1.8,<2
     - python-hdfs >=2.1.0,<3.0.0
     - httplib2 >=0.8,<=0.11.3
@@ -50,10 +51,12 @@ test:
     - apache_beam.examples.complete.juliaset
     - apache_beam.examples.complete.juliaset.juliaset
     - apache_beam.examples.cookbook
+    - apache_beam.examples.flink    
     - apache_beam.examples.snippets
     - apache_beam.internal
     - apache_beam.internal.gcp
     - apache_beam.io
+    - apache_beam.io.flink
     - apache_beam.io.gcp
     - apache_beam.io.gcp.datastore
     - apache_beam.io.gcp.internal
@@ -66,6 +69,7 @@ test:
     - apache_beam.runners.dataflow
     - apache_beam.runners.direct
     - apache_beam.runners.interactive
+    - apache_beam.runners.interactive.display
     - apache_beam.runners.job
     - apache_beam.runners.portability
     - apache_beam.runners.test
