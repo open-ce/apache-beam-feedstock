@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.9.0" %}
+{% set version = "2.12.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: f2d98c7193b377f83795e6ddbc46e36a1c91262af239be036e559080022a7e3f
+  sha256: e3f0c8a9108c968b4ae6eff2089640f9e11b4adb6b53e34821fe9af50319276d
 
 build:
   number: 0
@@ -26,22 +26,22 @@ requirements:
     - cython
     - python-avro >=1.8.1,<2.0.0
     - crcmod >=1.7,<2.0
-    - dill >=0.2.6,<=0.2.8.2
+    - dill >=0.2.9,<0.2.10
     - fastavro >=0.21.4,<0.22
     - pyarrow >=0.11.1,<0.12.0
     - grpcio >=1.8,<2
     - python-hdfs >=2.1.0,<3.0.0
     - httplib2 >=0.8,<=0.11.3
     - mock >=1.0.1,<3.0.0
-    - oauth2client >=2.0.1,<5
+    - oauth2client >=2.0.1,<4
     - protobuf >=3.5.0.post1,<4
     - pydot >=1.2.0,<1.3
-    - pytz >=2018.3,<=2018.4
+    - pytz >=2018.3
     - pyyaml >=3.12,<4.0.0
     - pyvcf >=0.6.8,<0.7.0
     - six >=1.9,<1.12
     - typing >=3.6.0,<3.7.0
-    - futures >=3.1.1,<4.0.0
+    - futures >=3.2.0,<4.0.0
     - future >=0.16.0,<1.0.0
  
 
