@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.12.0" %}
+{% set version = "2.13.0" %}
 
 package:
   name: {{ name|lower }}
@@ -31,7 +31,7 @@ requirements:
     - pyarrow >=0.12.0,<0.13.0
     - grpcio >=1.8,<2
     - python-hdfs >=2.1.0,<3.0.0
-    - httplib2 >=0.8,<=0.11.3
+    - httplib2 >=0.8,<=0.12.0
     - mock >=1.0.1,<3.0.0
     - oauth2client >=2.0.1,<4
     - protobuf >=3.5.0.post1,<4
