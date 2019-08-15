@@ -39,6 +39,7 @@ requirements:
     - pymongo >=3.8.0,<4.0.0
     - pytz >=2018.3
     - pyyaml >=3.12,<4.0.0
+    - python-dateutil >=2.8.0,<3
     - pyvcf >=0.6.8,<0.7.0  # [py<3]
     - six >=1.9,<1.12
     - typing >=3.6.0,<3.7.0  # [py<35]
