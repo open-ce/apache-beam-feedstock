@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.16.0" %}
+{% set version = "2.17.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: 1843d0cfc9f945e90d21e3d94b59e82613d0d5cbc44ae7befa65872f114e6b94
+  sha256: 4e90b8a6caf075632314876febbdff949a6dc2217dd63e220bf25141f18ec957
 
 build:
   number: 0
@@ -29,7 +29,7 @@ requirements:
     - dill >=0.3.0,<0.3.1
     - fastavro >=0.21.4,<0.22
     - funcsigs >=1.0.2,<2  # [py<3]
-    - pyarrow >=0.12.0,<0.15.0
+    - pyarrow >=0.15.1,<0.16.0
     - grpcio >=1.12.1,<2
     - python-hdfs >=2.1.0,<3.0.0
     - httplib2 >=0.8,<=0.12.0
@@ -40,7 +40,7 @@ requirements:
     - python-dateutil >=2.8.0,<3
     - pymongo >=3.8.0,<4.0.0
     - pytz >=2018.3
-    - pyyaml >=3.12,<4.0.0
+    - pyyaml >=3.12,<6.0.0
     - python-dateutil >=2.8.0,<3
     - pyvcf >=0.6.8,<0.7.0  # [py<3]
     - six >=1.9,<1.12
