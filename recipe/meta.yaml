@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.23.0" %}
+{% set version = "2.24.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: c06645a3326fa33b774d5de38d924f10ac0cbbcdab9b67651936f6906f3444b3
+  sha256: 55c50b1a964bacc840a5e4cc3b4a42c4ef09d12192d215ba3cad65d4d22e09dd
 
 build:
   number: 0
