@@ -94,7 +94,7 @@ test:
 
 about:
   home: https://beam.apache.org
-  license: Apache 2.0
+  license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
   summary: 'Apache Beam: An advanced unified programming model'
@@ -113,3 +113,4 @@ extra:
   recipe-maintainers:
     - sodre
     - aaltay
+    - xylar
