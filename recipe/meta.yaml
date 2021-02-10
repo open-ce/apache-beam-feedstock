@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.26.0" %}
+{% set version = "2.27.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: 6f616f016187c1b216aa29e15a5e1e9ddf9cb40768c5e3a451b992345ba0c1e3
+  sha256: 1e96cc55b28950087bd4f3bd835a192b8a9eff1b288ed10906b68336c523f81e
 
 build:
   number: 0
@@ -36,7 +36,7 @@ requirements:
     - numpy >=1.14.3,<2
     - oauth2client >=2.0.1,<5
     - protobuf >=3.12.2,<4
-    - pyarrow >=0.15.1,<0.18.0
+    - pyarrow >=0.15.1,<3.0.0
     - pydot >=1.2.0,<2
     - python-dateutil >=2.8.0,<3
     - pymongo >=3.8.0,<4.0.0
