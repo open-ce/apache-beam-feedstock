@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.23.0" %}
+{% set version = "2.24.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: c06645a3326fa33b774d5de38d924f10ac0cbbcdab9b67651936f6906f3444b3
+  sha256: 55c50b1a964bacc840a5e4cc3b4a42c4ef09d12192d215ba3cad65d4d22e09dd
 
 build:
   number: 0
@@ -36,7 +36,7 @@ requirements:
     - numpy >=1.14.3,<2
     # upstream says <4 but this is not available
     - oauth2client >=2.0.1,<5
-    - protobuf >=3.5.0.post1,<4
+    - protobuf >=3.12.2,<4
     - pyarrow >=0.15.1,<0.18.0
     - pydot >=1.2.0,<2
     - python-dateutil >=2.8.0,<3
@@ -44,6 +44,7 @@ requirements:
     - pytz >=2018.3
     - pyyaml >=3.12,<6.0.0
     - python-dateutil >=2.8.0,<3
+    - requests >=2.24.0,<3.0.0
     - typing-extensions >=3.7.0,<3.8.0
 
 
