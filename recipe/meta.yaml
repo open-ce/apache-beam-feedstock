@@ -94,7 +94,7 @@ test:
     - apache_beam.typehints
     - apache_beam.utils
   commands:
-    - pip chekc
+    - pip check
 
 
 about:
