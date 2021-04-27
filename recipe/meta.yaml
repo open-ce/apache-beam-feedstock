@@ -52,6 +52,8 @@ requirements:
 
 
 test:
+  requires:
+    - pip
   imports:
     - apache_beam
     - apache_beam.coders
@@ -91,6 +93,8 @@ test:
     - apache_beam.transforms
     - apache_beam.typehints
     - apache_beam.utils
+  commands:
+    - pip chekc
 
 
 about:
