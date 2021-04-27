@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.28.0" %}
+{% set version = "2.29.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: 2bd1560d75cb1a93e8021fa2aa64268faea6b543db11b35aaee5b63485856ef3
+  sha256: b53363cc2e7ad9cfb1dc916c88678d3d78c9c4d4943e7d9887a0248ca790398d
 
 build:
   number: 0
@@ -29,6 +29,7 @@ requirements:
     - cython >=0.28.1
     - python-avro >=1.8.1,!=1.9.2,<1.10.0
     - crcmod >=1.7,<2.0
+    - dataclasses  # [py<37]
     - dill >=0.3.1.1,<0.3.2
     - fastavro >=0.21.4,<2
     - future >=0.18.2,<1.0.0
@@ -51,6 +52,8 @@ requirements:
 
 
 test:
+  requires:
+    - pip
   imports:
     - apache_beam
     - apache_beam.coders
@@ -90,6 +93,8 @@ test:
     - apache_beam.transforms
     - apache_beam.typehints
     - apache_beam.utils
+  commands:
+    - pip check
 
 
 about:
