@@ -11,7 +11,8 @@ source:
 
 build:
   number: 0
-  skip: true  # [win or py<36]
+  # py39 versions of python-avro and dill are too recent
+  skip: true  # [win or py<36 or py>=39]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
