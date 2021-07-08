@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.30.0" %}
+{% set version = "2.31.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,19 +7,19 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: 89e3bace7385560646cc5d1e858182a40054e16ebd01c563638ef12db8ecc012
+  sha256: bab2702905e5e41e6f11621127ba73d54929df34c7b059108d2d3a95dcdc5cff
 
 build:
   number: 0
   # py39 versions of python-avro and dill are too recent
-  skip: true  # [win or py<36 or py>=39]
+  skip: true  # [win or py>=39]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
+    - cython >=0.28.1                        # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - python
@@ -40,7 +40,7 @@ requirements:
     - numpy >=1.14.3,<1.21.0
     - oauth2client >=2.0.1,<5
     - protobuf >=3.12.2,<4
-    - pyarrow >=0.15.1,<4.0.0
+    - pyarrow >=0.15.1,<5.0.0
     - pydot >=1.2.0,<2
     - python-dateutil >=2.8.0,<3
     - pymongo >=3.8.0,<4.0.0
