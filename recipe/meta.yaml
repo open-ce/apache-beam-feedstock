@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.31.0" %}
+{% set version = "2.32.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: bab2702905e5e41e6f11621127ba73d54929df34c7b059108d2d3a95dcdc5cff
+  sha256: 7ae2268577c582c10beedaed399a5d21752e633e8e2c86867354697c5ca4fbb1
 
 build:
   number: 0
@@ -39,6 +39,7 @@ requirements:
     - httplib2 >=0.8,<0.20.0
     - numpy >=1.14.3,<1.21.0
     - oauth2client >=2.0.1,<5
+    - orjson <4.0
     - protobuf >=3.12.2,<4
     - pyarrow >=0.15.1,<5.0.0
     - pydot >=1.2.0,<2
