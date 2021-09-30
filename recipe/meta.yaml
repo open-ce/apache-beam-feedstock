@@ -2,7 +2,7 @@
 {% set version = "2.32.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name|lower }}-split
   version: {{ version }}
 
 source:
@@ -10,91 +10,184 @@ source:
   sha256: 7ae2268577c582c10beedaed399a5d21752e633e8e2c86867354697c5ca4fbb1
 
 build:
-  number: 0
+  number: 1
   # py39 versions of python-avro and dill are too recent
   skip: true  # [win or py>=39]
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
+# make sure python 3.9 gets skipped properly
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython >=0.28.1                        # [build_platform != target_platform]
-    - {{ compiler('c') }}
   host:
     - python
-    - cython >=0.28.1
-    - pip
   run:
     - python
-    - cython >=0.28.1
-    - python-avro >=1.8.1,!=1.9.2,<1.10.0
-    - crcmod >=1.7,<2.0
-    - dataclasses  # [py<37]
-    - dill >=0.3.1.1,<0.3.2
-    - fastavro >=0.21.4,<2
-    - future >=0.18.2,<1.0.0
-    - grpcio >=1.29.0,<2
-    - python-hdfs >=2.1.0,<3.0.0
-    - httplib2 >=0.8,<0.20.0
-    - numpy >=1.14.3,<1.21.0
-    - oauth2client >=2.0.1,<5
-    - orjson <4.0
-    - protobuf >=3.12.2,<4
-    - pyarrow >=0.15.1,<5.0.0
-    - pydot >=1.2.0,<2
-    - python-dateutil >=2.8.0,<3
-    - pymongo >=3.8.0,<4.0.0
-    - pytz >=2018.3
-    - requests >=2.24.0,<3.0.0
-    - typing-extensions >=3.7.0,<3.8.0
 
+outputs:
+  - name: {{ name }}
+    script: build_apache_beam.sh
+    requirements:
+      build:
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - cython >=0.28.1                        # [build_platform != target_platform]
+        - {{ compiler('c') }}
+      host:
+        - python
+        - cython >=0.28.1
+        - pip
+      run:
+        - python
+        - cython >=0.28.1
+        - python-avro >=1.8.1,!=1.9.2,<1.10.0
+        - crcmod >=1.7,<2.0
+        - dataclasses  # [py<37]
+        - dill >=0.3.1.1,<0.3.2
+        - fastavro >=0.21.4,<2
+        - future >=0.18.2,<1.0.0
+        - grpcio >=1.29.0,<2
+        - python-hdfs >=2.1.0,<3.0.0
+        - httplib2 >=0.8,<0.20.0
+        - numpy >=1.14.3,<1.21.0
+        - oauth2client >=2.0.1,<5
+        - orjson <4.0
+        - protobuf >=3.12.2,<4
+        - pyarrow >=0.15.1,<5.0.0
+        - pydot >=1.2.0,<2
+        - python-dateutil >=2.8.0,<3
+        - pymongo >=3.8.0,<4.0.0
+        - pytz >=2018.3
+        - requests >=2.24.0,<3.0.0
+        - typing-extensions >=3.7.0,<3.8.0
+    test:
+      requires:
+        - pip
+      imports:
+        - apache_beam
+        - apache_beam.coders
+        - apache_beam.examples.complete.game
+        - apache_beam.examples.complete.juliaset
+        - apache_beam.examples.complete.juliaset.juliaset
+        - apache_beam.examples.cookbook
+        - apache_beam.examples.flink
+        - apache_beam.examples.snippets
+        - apache_beam.internal
+        - apache_beam.internal.gcp
+        - apache_beam.io
+        - apache_beam.io.flink
+        - apache_beam.io.gcp
+        - apache_beam.io.gcp.datastore
+        - apache_beam.io.gcp.internal
+        - apache_beam.io.gcp.tests
+        - apache_beam.metrics
+        - apache_beam.options
+        - apache_beam.portability
+        - apache_beam.portability.api
+        - apache_beam.runners
+        - apache_beam.runners.dataflow
+        - apache_beam.runners.direct
+        - apache_beam.runners.interactive
+        - apache_beam.runners.interactive.display
+        - apache_beam.runners.job
+        - apache_beam.runners.portability
+        - apache_beam.runners.test
+        - apache_beam.runners.worker
+        - apache_beam.testing
+        - apache_beam.testing.benchmarks
+        - apache_beam.testing.benchmarks.nexmark
+        - apache_beam.testing.benchmarks.nexmark.models
+        - apache_beam.testing.benchmarks.nexmark.queries
+        - apache_beam.tools
+        - apache_beam.transforms
+        - apache_beam.typehints
+        - apache_beam.utils
+      commands:
+        - pip check
 
-test:
-  requires:
-    - pip
-  imports:
-    - apache_beam
-    - apache_beam.coders
-    - apache_beam.examples.complete.game
-    - apache_beam.examples.complete.juliaset
-    - apache_beam.examples.complete.juliaset.juliaset
-    - apache_beam.examples.cookbook
-    - apache_beam.examples.flink
-    - apache_beam.examples.snippets
-    - apache_beam.internal
-    - apache_beam.internal.gcp
-    - apache_beam.io
-    - apache_beam.io.flink
-    - apache_beam.io.gcp
-    - apache_beam.io.gcp.datastore
-    - apache_beam.io.gcp.internal
-    - apache_beam.io.gcp.tests
-    - apache_beam.metrics
-    - apache_beam.options
-    - apache_beam.portability
-    - apache_beam.portability.api
-    - apache_beam.runners
-    - apache_beam.runners.dataflow
-    - apache_beam.runners.direct
-    - apache_beam.runners.interactive
-    - apache_beam.runners.interactive.display
-    - apache_beam.runners.job
-    - apache_beam.runners.portability
-    - apache_beam.runners.test
-    - apache_beam.runners.worker
-    - apache_beam.testing
-    - apache_beam.testing.benchmarks
-    - apache_beam.testing.benchmarks.nexmark
-    - apache_beam.testing.benchmarks.nexmark.models
-    - apache_beam.testing.benchmarks.nexmark.queries
-    - apache_beam.tools
-    - apache_beam.transforms
-    - apache_beam.typehints
-    - apache_beam.utils
-  commands:
-    - pip check
+  - name: {{ name }}-with-gcp
+    requirements:
+      host:
+        - python
+      run:
+        - python
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - cachetools >=3.1.0,<5
+        - google-apitools >=0.5.31,<0.5.32
+        - google-auth >=1.18.0,<2
+        - google-cloud-datastore >=1.8.0,<2
+        - google-cloud-pubsub >=0.39.0,<2
+        - google-cloud-bigquery >=1.6.0,<3
+        - google-cloud-core >=0.28.1,<2
+        - google-cloud-bigtable >=0.31.1,<2
+        - google-cloud-spanner >=1.13.0,<2
+        - grpcio-gcp >=0.2.2,<1
+        - google-cloud-dlp >=0.12.0,<2
+        - google-cloud-language >=1.3.0,<2
+        - google-cloud-videointelligence >=1.8.0,<2
+        - google-cloud-vision >=0.38.0,<2
+        - google-cloud-recommendations-ai >=0.1.0,<=0.2.0
+    test:
+      imports:
+        # not sure what test is useful...
+        - apache_beam
+      commands:
+        - pip check
+      requires:
+        - pip
 
+#  - name: {{ name }}-with-interactive
+#    requirements:
+#      host:
+#        - python
+#      run:
+#        - python
+#        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+#        - facets-overview >=1.0.0,<2
+#        - ipython >=5.8.0,<8
+#        - ipykernel >=5.2.0,<6
+#        - jupyter_client >=6.1.11,<6.1.13
+#        - timeloop >=1.0.2,<2
+#    test:
+#      imports:
+#        # not sure what test is useful...
+#        - apache_beam
+#      commands:
+#        - pip check
+#      requires:
+#        - pip
+
+  - name: {{ name }}-with-aws
+    requirements:
+      host:
+        - python
+      run:
+        - python
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - boto3 >=1.9
+    test:
+      imports:
+        # not sure what test is useful...
+        - apache_beam
+      commands:
+        - pip check
+      requires:
+        - pip
+
+  - name: {{ name }}-with-azure
+    requirements:
+      host:
+        - python
+      run:
+        - python
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - azure-storage-blob >=12.3.2
+        - azure-core >=1.7.0
+    test:
+      imports:
+        # not sure what test is useful...
+        - apache_beam
+      commands:
+        - pip check
+      requires:
+        - pip
 
 about:
   home: https://beam.apache.org

@@ -1,5 +1,5 @@
-About apache-beam
-=================
+About apache-beam-split
+=======================
 
 Home: https://beam.apache.org
 
@@ -101,21 +101,24 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-apache--beam-green.svg)](https://anaconda.org/conda-forge/apache-beam) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/apache-beam.svg)](https://anaconda.org/conda-forge/apache-beam) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/apache-beam.svg)](https://anaconda.org/conda-forge/apache-beam) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/apache-beam.svg)](https://anaconda.org/conda-forge/apache-beam) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-apache--beam--with--aws-green.svg)](https://anaconda.org/conda-forge/apache-beam-with-aws) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/apache-beam-with-aws.svg)](https://anaconda.org/conda-forge/apache-beam-with-aws) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/apache-beam-with-aws.svg)](https://anaconda.org/conda-forge/apache-beam-with-aws) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/apache-beam-with-aws.svg)](https://anaconda.org/conda-forge/apache-beam-with-aws) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-apache--beam--with--azure-green.svg)](https://anaconda.org/conda-forge/apache-beam-with-azure) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/apache-beam-with-azure.svg)](https://anaconda.org/conda-forge/apache-beam-with-azure) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/apache-beam-with-azure.svg)](https://anaconda.org/conda-forge/apache-beam-with-azure) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/apache-beam-with-azure.svg)](https://anaconda.org/conda-forge/apache-beam-with-azure) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-apache--beam--with--gcp-green.svg)](https://anaconda.org/conda-forge/apache-beam-with-gcp) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/apache-beam-with-gcp.svg)](https://anaconda.org/conda-forge/apache-beam-with-gcp) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/apache-beam-with-gcp.svg)](https://anaconda.org/conda-forge/apache-beam-with-gcp) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/apache-beam-with-gcp.svg)](https://anaconda.org/conda-forge/apache-beam-with-gcp) |
 
-Installing apache-beam
-======================
+Installing apache-beam-split
+============================
 
-Installing `apache-beam` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `apache-beam-split` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `apache-beam` can be installed with:
+Once the `conda-forge` channel has been enabled, `apache-beam, apache-beam-with-aws, apache-beam-with-azure, apache-beam-with-gcp` can be installed with:
 
 ```
-conda install apache-beam
+conda install apache-beam apache-beam-with-aws apache-beam-with-azure apache-beam-with-gcp
 ```
 
 It is possible to list all of the versions of `apache-beam` available on your platform with:
@@ -163,17 +166,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating apache-beam-feedstock
-==============================
+Updating apache-beam-split-feedstock
+====================================
 
-If you would like to improve the apache-beam recipe or build a new
+If you would like to improve the apache-beam-split recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/apache-beam-feedstock are
+Note that all branches in the conda-forge/apache-beam-split-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
