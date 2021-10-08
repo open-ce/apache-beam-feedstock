@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.32.0" %}
+{% set version = "2.33.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: 7ae2268577c582c10beedaed399a5d21752e633e8e2c86867354697c5ca4fbb1
+  sha256: a48c3a32291d3665dafdd19fa5faf6bbd6334cd84ed07f3eb888f6aeb7370d14
 
 build:
-  number: 1
+  number: 0
   # py39 versions of python-avro and dill are too recent
   skip: true  # [win or py>=39]
 
