@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.32.0" %}
+{% set version = "2.33.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: 7ae2268577c582c10beedaed399a5d21752e633e8e2c86867354697c5ca4fbb1
+  sha256: a48c3a32291d3665dafdd19fa5faf6bbd6334cd84ed07f3eb888f6aeb7370d14
 
 build:
-  number: 1
+  number: 0
   # py39 versions of python-avro and dill are too recent
   skip: true  # [win or py>=39]
 
@@ -39,7 +39,6 @@ outputs:
         - cython >=0.28.1
         - python-avro >=1.8.1,!=1.9.2,<1.10.0
         - crcmod >=1.7,<2.0
-        - dataclasses  # [py<37]
         - dill >=0.3.1.1,<0.3.2
         - fastavro >=0.21.4,<2
         - future >=0.18.2,<1.0.0
@@ -56,7 +55,7 @@ outputs:
         - pymongo >=3.8.0,<4.0.0
         - pytz >=2018.3
         - requests >=2.24.0,<3.0.0
-        - typing-extensions >=3.7.0,<3.8.0
+        - typing-extensions >=3.7.0,<4
     test:
       requires:
         - pip
