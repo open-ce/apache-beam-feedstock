@@ -44,7 +44,7 @@ outputs:
         - grpcio >=1.29.0,<2
         - python-hdfs >=2.1.0,<3.0.0
         - httplib2 >=0.8,<0.20.0
-        - numpy >=1.14.3,<1.22.0
+        - numpy >=1.14.3,<1.23.0
         - oauth2client >=2.0.1,<5
         - orjson <4.0
         - protobuf >=3.12.2,<4
