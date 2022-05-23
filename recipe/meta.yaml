@@ -10,11 +10,8 @@ source:
   sha256: e088065b55eeb28c8727af6d5e19d83231ce11431ed611d9682ecd827fc7f30c
 
 build:
-  number: 0
-  # py39 versions of python-avro and dill are too recent
-  skip: true  # [win or py>=39]
+  number: 1
 
-# make sure python 3.9 gets skipped properly
 requirements:
   host:
     - python
