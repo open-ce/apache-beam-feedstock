@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.38.0" %}
+{% set version = "2.39.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: e088065b55eeb28c8727af6d5e19d83231ce11431ed611d9682ecd827fc7f30c
+  sha256: 54b28731deed19ece8050e02e0226e38fc5e698026c6d3a3bb1fe90917c7bc0e
 
 build:
   skip: true  # [win or py>=310]
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -43,17 +43,17 @@ outputs:
         - python-hdfs >=2.1.0,<3.0.0
         - httplib2 >=0.8,<0.20.0
         - numpy >=1.14.3,<1.23.0
-        - oauth2client >=2.0.1,<5
         - orjson <4.0
         - protobuf >=3.12.2,<4
         - proto-plus >=1.7.1,<2
-        - pyarrow >=0.15.1,<7.0.0
+        - pyarrow >=0.15.1,<8.0.0
         - pydot >=1.2.0,<2
         - python-dateutil >=2.8.0,<3
         - pymongo >=3.8.0,<4.0.0
         - pytz >=2018.3
         - requests >=2.24.0,<3.0.0
         - typing-extensions >=3.7.0
+
     test:
       requires:
         - pip
