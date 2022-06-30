@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.39.0" %}
+{% set version = "2.40.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: 54b28731deed19ece8050e02e0226e38fc5e698026c6d3a3bb1fe90917c7bc0e
+  sha256: ff5a1e1e81315b2a6dce954a5429c8b63604eceee2d6938974cb83103eb1c2c3
 
 build:
   skip: true  # [win or py>=310]
@@ -37,9 +37,9 @@ outputs:
         - cython >=0.28.1
         - crcmod >=1.7,<2.0
         - dill >=0.3.1.1,<0.3.2
-        - cloudpickle >=2.0.0,<3
+        - cloudpickle >=2.1.0,<3
         - fastavro >=0.23.6,<2
-        - grpcio >=1.29.0,<2
+        - grpcio >=1.33.1,<2
         - python-hdfs >=2.1.0,<3.0.0
         - httplib2 >=0.8,<0.20.0
         - numpy >=1.14.3,<1.23.0
