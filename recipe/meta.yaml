@@ -11,48 +11,48 @@ source:
 
 build:
   skip: true  # [win or py>=310]
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python
+    - python {{ python }}
   run:
-    - python
+    - python {{ python }}
 
 outputs:
   - name: {{ name }}
     script: build_apache_beam.sh
     requirements:
       build:
-        - python                                 # [build_platform != target_platform]
-        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-        - cython >=0.28.1                        # [build_platform != target_platform]
+        - python                                 
+        - cross-python_{{ target_platform }}     
+        - cython {{ cython }}                        
         - {{ compiler('c') }}
       host:
-        - python
-        - cython >=0.28.1
+        - python {{ python }}
+        - cython {{ cython }}
         - pip
       run:
-        - python
-        - cython >=0.28.1
-        - crcmod >=1.7,<2.0
-        - dill >=0.3.1.1,<0.3.2
-        - cloudpickle >=2.1.0,<3
-        - fastavro >=0.23.6,<2
-        - grpcio >=1.33.1,<2
-        - python-hdfs >=2.1.0,<3.0.0
-        - httplib2 >=0.8,<0.20.0
-        - numpy >=1.14.3,<1.23.0
-        - orjson <4.0
-        - protobuf >=3.12.2,<4
-        - proto-plus >=1.7.1,<2
-        - pyarrow >=0.15.1,<8.0.0
-        - pydot >=1.2.0,<2
-        - python-dateutil >=2.8.0,<3
-        - pymongo >=3.8.0,<4.0.0
-        - pytz >=2018.3
-        - requests >=2.24.0,<3.0.0
-        - typing-extensions >=3.7.0
+        - python {{ python }}
+        - cython {{ cython }}
+        - crcmod 
+        - dill 
+        - cloudpickle
+        - fastavro 
+        - grpcio {{ grpcio }}
+        - python-hdfs 
+        - httplib2
+        - numpy {{ numpy }}
+        - orjson
+        - protobuf {{ protobuf }}	
+        - proto-plus
+        - pyarrow 
+        - pydot 
+        - python-dateutil
+        - pymongo
+        - pytz 
+        - requests {{ requests }}
+        - typing-extensions
 
     test:
       requires:
