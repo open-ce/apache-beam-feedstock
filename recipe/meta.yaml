@@ -9,7 +9,7 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
   sha256: c1a0456a5b48c3481bf20dc904e4d812515144336873b322f17ba188e2fabd92
   patches:
-    - 0001-pyarrow-relaxed.patch
+    - 0001-relaxed-deps.patch
 
 build:
   number: 1
