@@ -6,7 +6,7 @@ diff -Naur apache-beam-2.40.0-org/setup.py apache-beam-2.40.0/setup.py
    pyarrow_dependency = ''
  else:
 -  pyarrow_dependency = 'pyarrow>=0.15.1,<8.0.0'
-+  pyarrow_dependency = 'pyarrow>=0.15.1,<=8.0.0'
++  pyarrow_dependency = 'pyarrow>=0.15.1,<=10.0.0'
  
  # We must generate protos after setup_requires are installed.
  def generate_protos_first():
