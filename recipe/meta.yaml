@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.41.0" %}
+{% set version = "2.42.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: c1a0456a5b48c3481bf20dc904e4d812515144336873b322f17ba188e2fabd92
+  sha256: b95971b92928a2a5377eb5d0714d56d02a7003b5eb3339830aa26c5392299a7e
   patches:
     - 0001-relaxed-deps.patch
 
@@ -37,7 +37,7 @@ outputs:
         - cython >=0.28.1
         - crcmod >=1.7,<2.0
         - dill >=0.3.1.1,<0.3.2
-        - cloudpickle >=2.1.0,<3
+        - cloudpickle >=2.1.0,<2.2.0
         - fastavro >=0.23.6,<2
         - grpcio {{ grpcio }}
         - python-hdfs >=2.1.0,<3.0.0
@@ -51,8 +51,10 @@ outputs:
         - python-dateutil >=2.8.0,<3
         - pymongo >=3.8.0,<4.0.0
         - pytz >=2018.3
+        - regex {{ regex }}
         - requests {{ requests }}
         - typing-extensions {{ typing_extensions }}
+        - zstandard >=0.18.0,<1
 
     test:
       requires:
