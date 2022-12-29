@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.42.0" %}
+{% set version = "2.43.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,9 +7,9 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: b95971b92928a2a5377eb5d0714d56d02a7003b5eb3339830aa26c5392299a7e
+  sha256: f1d4d4495fb661d39a2eff7689c717008d0c708b3311931e829b1f445d602422
   patches:
-    - 0001-relaxed-deps.patch
+    - 0001-Relaxed-dependency-patch.patch
 
 build:
   number: 1
@@ -31,13 +31,15 @@ outputs:
       host:
         - python {{ python }}
         - cython {{ cython }}
-        - pip
+        - pip {{ pip }}
+        - numpy {{ numpy }}
       run:
         - python {{ python }}
+        - pip {{ pip }}
         - cython >=0.28.1
         - crcmod >=1.7,<2.0
         - dill >=0.3.1.1,<0.3.2
-        - cloudpickle >=2.1.0,<2.2.0
+        - cloudpickle >=2.2.0,<2.3.0
         - fastavro >=0.23.6,<2
         - grpcio {{ grpcio }}
         - python-hdfs >=2.1.0,<3.0.0
@@ -55,6 +57,8 @@ outputs:
         - requests {{ requests }}
         - typing-extensions {{ typing_extensions }}
         - zstandard >=0.18.0,<1
+        - fasteners >=0.3,<1.0
+        - objsize >=0.5.2,<0.6.0
 
     test:
       requires:
