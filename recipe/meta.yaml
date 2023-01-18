@@ -9,7 +9,7 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
   sha256: f1d4d4495fb661d39a2eff7689c717008d0c708b3311931e829b1f445d602422
   patches:
-    - 0001-Relaxed-dependency-patch.patch
+    - 0001-Relaxed-dependencies-pyarrow-and-numpy.patch
 
 build:
   number: 1
