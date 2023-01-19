@@ -1,0 +1,42 @@
+From ae0f4b832d409a17fb8775b2fcae76ba99d06858 Mon Sep 17 00:00:00 2001
+From: ArchanaShinde1 <archana.shinde2504@gmail.com>
+Date: Thu, 19 Jan 2023 04:12:24 +0000
+Subject: [PATCH] Relax dependencies
+
+---
+ sdks/python/setup.py | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/sdks/python/setup.py b/sdks/python/setup.py
+index c4c7f106c3..5659a3e1e9 100644
+--- a/sdks/python/setup.py
++++ b/sdks/python/setup.py
+@@ -140,7 +140,7 @@ except ImportError:
+ if sys.platform == 'win32' and sys.maxsize <= 2**32:
+   pyarrow_dependency = ''
+ else:
+-  pyarrow_dependency = 'pyarrow>=0.15.1,<10.0.0'
++  pyarrow_dependency = 'pyarrow>=0.15.1,<=10.0.1'
+ 
+ # We must generate protos after setup_requires are installed.
+ def generate_protos_first():
+@@ -188,6 +188,7 @@ if __name__ == '__main__':
+     # restrict the protobuf with tight upper bound(3.19.4)
+     protobuf_dependency = ['protobuf>3.12.2,<3.19.5']
+   else:
++
+     protobuf_dependency = ['protobuf>3.12.2,<4']
+ 
+   setuptools.setup(
+@@ -248,7 +249,7 @@ if __name__ == '__main__':
+         'grpcio>=1.33.1,!=1.48.0,<2',
+         'hdfs>=2.1.0,<3.0.0',
+         'httplib2>=0.8,<0.21.0',
+-        'numpy>=1.14.3,<1.23.0',
++        'numpy>=1.14.3,<1.24.0',
+         # Tight bound since minor version releases caused breakages.
+         'objsize>=0.5.2,<0.6.0',
+         'pymongo>=3.8.0,<4.0.0',
+-- 
+2.34.1
+
