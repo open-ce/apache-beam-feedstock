@@ -9,7 +9,7 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
   sha256: b4a72ef7f73bc254cf377d2363847cabbb4795e23db7a14a235e435a90e2cfac
   patches:
-    - 0001-relax-dill-version.patch
+    - 0001-Relax-dependencies.patch
 
 build:
   number: 1
