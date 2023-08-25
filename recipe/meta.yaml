@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.48.0" %}
+{% set version = "2.49.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: 611b9e0015e9d1d2ca34b91453117ee5b54ca7446de505b95b2c5a5c4d9f4b1e 
+  sha256: b4a72ef7f73bc254cf377d2363847cabbb4795e23db7a14a235e435a90e2cfac
   patches:
-    - 0001-relax-dill-version.patch
+    - 0001-Relax-dependencies.patch
 
 build:
-  number: 2
+  number: 1
 
 requirements:
   host:
