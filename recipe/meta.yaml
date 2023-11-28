@@ -1,13 +1,13 @@
 {% set name = "apache-beam" %}
-{% set version = "2.49.0" %}
+{% set version = "2.52.0" %}
 
 package:
   name: {{ name|lower }}-split
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: b4a72ef7f73bc254cf377d2363847cabbb4795e23db7a14a235e435a90e2cfac
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 605ca0c80ea34d5af43eb7c6f8697b8fff7f799f271f286fb861aadc32d7148c
   patches:
     - 0001-Relax-dependencies.patch
 
@@ -44,6 +44,8 @@ outputs:
         - grpcio {{ grpcio }}
         - python-hdfs >=2.1.0,<3.0.0
         - httplib2 >=0.8,<0.20.0
+        - js2py>=0.74,<1
+        - jsonschema>=4.0.0,<5.0.0
         - numpy {{ numpy }}
         - orjson <4.0
         - protobuf {{ protobuf }}
@@ -59,6 +61,7 @@ outputs:
         - zstandard >=0.18.0,<1
         - fasteners >=0.3,<1.0
         - objsize >=0.6.1,<0.7.0
+        - packaging >=22.0
 
     test:
       requires:
