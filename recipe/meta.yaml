@@ -1,5 +1,5 @@
 {% set name = "apache-beam" %}
-{% set version = "2.52.0" %}
+{% set version = "2.53.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 605ca0c80ea34d5af43eb7c6f8697b8fff7f799f271f286fb861aadc32d7148c
+  sha256: 06b41f182f8a15cd248930fbc517a2f1f87daef2fd2006f1b5f74abf81010405
   patches:
     - 0001-Relax-dependencies.patch
 
@@ -46,6 +46,7 @@ outputs:
         - httplib2 >=0.8,<0.20.0
         - js2py>=0.74,<1
         - jsonschema>=4.0.0,<5.0.0
+        - jsonpickle>=2.2.0,<4.0.0
         - numpy {{ numpy }}
         - orjson <4.0
         - protobuf {{ protobuf }}
