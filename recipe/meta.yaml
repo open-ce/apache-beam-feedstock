@@ -9,7 +9,8 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 06b41f182f8a15cd248930fbc517a2f1f87daef2fd2006f1b5f74abf81010405
   patches:
-    - 0001-Relax-dependencies-and-downgrade-grpcio.patch
+    - 0001-Relax-dependencies-and-downgrade-grpcio.patch     #[ppc64le]
+    - 0001-Relax-dependencies.patch
 
 build:
   number: 2

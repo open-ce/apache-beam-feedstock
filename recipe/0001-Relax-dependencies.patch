@@ -1,0 +1,96 @@
+From bfb5eaedb47ffdcfe5c96bfb02e0a7e6e6ebbe6a Mon Sep 17 00:00:00 2001
+From: ArchanaShinde1 <archana.shinde2504@gmail.com>
+Date: Tue, 27 Feb 2024 16:55:37 +0000
+Subject: [PATCH] Update patch
+
+---
+ sdks/python/pyproject.toml |  4 ++--
+ sdks/python/setup.py       | 18 +++++++++---------
+ 2 files changed, 11 insertions(+), 11 deletions(-)
+
+diff --git a/sdks/python/pyproject.toml b/sdks/python/pyproject.toml
+index d185c45f619..0ebcb5bec0c 100644
+--- a/sdks/python/pyproject.toml
++++ b/sdks/python/pyproject.toml
+@@ -26,11 +26,11 @@ requires = [
+     # Avoid https://github.com/pypa/virtualenv/issues/2006
+     "distlib==0.3.7",
+     # Numpy headers
+-    "numpy>=1.14.3,<1.25", # Update setup.py as well.
++    "numpy>=1.14.3,<=1.26.4", # Update setup.py as well.
+     # having cython here will create wheels that are platform dependent.
+     "cython==0.29.36",
+ ]
+ 
+ 
+ # legacy installation is needed to generate `apache_beam.portability.api` package.
+-build-backend = "setuptools.build_meta"
+\ No newline at end of file
++build-backend = "setuptools.build_meta"
+diff --git a/sdks/python/setup.py b/sdks/python/setup.py
+index 7e6d2217d75..277fec1cf2f 100644
+--- a/sdks/python/setup.py
++++ b/sdks/python/setup.py
+@@ -148,17 +148,17 @@ elif sys.platform == 'win32' or sys.platform == 'cygwin':
+   # not called even though S3 was initialized.  This could lead to a
+   # segmentation fault at exit. Keep pyarrow<13 until this is resolved.
+   pyarrow_dependency = [
+-        'pyarrow>=3.0.0,<12.0.0',
++        'pyarrow>=3.0.0,<=14.0.1',
+         # NOTE: We can remove this once Beam increases the pyarrow lower bound
+         # to a version that fixes CVE.
+-        'pyarrow-hotfix<1'
++#        'pyarrow-hotfix<1'
+     ]
+ else:
+   pyarrow_dependency = [
+-      'pyarrow>=3.0.0,<15.0.0',
++      'pyarrow>=3.0.0,<=14.0.1',
+       # NOTE(https://github.com/apache/beam/issues/29392): We can remove this
+       # once Beam increases the pyarrow lower bound to a version that fixes CVE.
+-      'pyarrow-hotfix<1'
++#      'pyarrow-hotfix<1'
+   ]
+ 
+ 
+@@ -279,13 +279,13 @@ if __name__ == '__main__':
+       ext_modules=extensions,
+       install_requires=[
+           'crcmod>=1.7,<2.0',
+-          'orjson>=3.9.7,<4',
++          'orjson>=3.8.0,<4',
+           # Dill doesn't have forwards-compatibility guarantees within minor
+           # version. Pickles created with a new version of dill may not unpickle
+           # using older version of dill. It is best to use the same version of
+           # dill on client and server, therefore list of allowed versions is
+           # very narrow. See: https://github.com/uqfoundation/dill/issues/341.
+-          'dill>=0.3.1.1,<0.3.2',
++          'dill>=0.3.1.1,<0.3.7',
+           # It is prudent to use the same version of pickler at job submission
+           # and at runtime, therefore bounds need to be tight.
+           # To avoid depending on an old dependency, update the minor version on
+@@ -298,10 +298,10 @@ if __name__ == '__main__':
+           'httplib2>=0.8,<0.23.0',
+           'js2py>=0.74,<1',
+           'jsonschema>=4.0.0,<5.0.0',
+-          'jsonpickle>=3.0.0,<4.0.0',
++          'jsonpickle>=2.2.0,<4.0.0',
+           # numpy can have breaking changes in minor versions.
+           # Use a strict upper bound.
+-          'numpy>=1.14.3,<1.25.0',  # Update pyproject.toml as well.
++          'numpy>=1.14.3,<=1.26.4',  # Update pyproject.toml as well.
+           'objsize>=0.6.1,<0.7.0',
+           'packaging>=22.0',
+           'pymongo>=3.8.0,<5.0.0',
+@@ -316,7 +316,7 @@ if __name__ == '__main__':
+           #
+           # 3. Exclude protobuf 4 versions that leak memory, see:
+           # https://github.com/apache/beam/issues/28246
+-          'protobuf>=3.20.3,<4.26.0,!=4.0.*,!=4.21.*,!=4.22.0,!=4.23.*,!=4.24.*',  # pylint: disable=line-too-long
++          'protobuf>=3.20.3,<4.26.0,!=4.0.*,!=4.22.0,!=4.23.*,!=4.24.*',  # pylint: disable=line-too-long
+           'pydot>=1.2.0,<2',
+           'python-dateutil>=2.8.0,<3',
+           'pytz>=2018.3',
+-- 
+2.40.1
+
