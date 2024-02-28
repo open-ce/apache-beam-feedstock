@@ -9,8 +9,8 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 06b41f182f8a15cd248930fbc517a2f1f87daef2fd2006f1b5f74abf81010405
   patches:
-    - 0001-Relax-dependencies-and-downgrade-grpcio.patch     #[ppc64le]
-    - 0001-Relax-dependencies.patch
+    - 0001-Relax-dependencies-and-downgrade-grpcio.patch   #[ppc64le]
+    - 0001-Relax-dependencies.patch                        #[x86_64]
 
 build:
   number: 2
@@ -104,14 +104,14 @@ outputs:
         - apache_beam.typehints
         - apache_beam.utils
       commands:
-#        - pip check
+        - pip check
 
     test:
       imports:
         # not sure what test is useful...
         - apache_beam
       commands:
-        - pip check
+#        - pip check
       requires:
         - pip
 
