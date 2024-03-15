@@ -42,7 +42,7 @@ index 7e6d2217d75..0f3e0643b28 100644
    # segmentation fault at exit. Keep pyarrow<13 until this is resolved.
    pyarrow_dependency = [
 -        'pyarrow>=3.0.0,<12.0.0',
-+        'pyarrow>=3.0.0,<=14.0.1',
++        'pyarrow>=3.0.0,<=15.0.1',
          # NOTE: We can remove this once Beam increases the pyarrow lower bound
          # to a version that fixes CVE.
 -        'pyarrow-hotfix<1'
@@ -51,7 +51,7 @@ index 7e6d2217d75..0f3e0643b28 100644
  else:
    pyarrow_dependency = [
 -      'pyarrow>=3.0.0,<15.0.0',
-+      'pyarrow>=3.0.0,<=14.0.1',
++      'pyarrow>=3.0.0,<=15.0.1',
        # NOTE(https://github.com/apache/beam/issues/29392): We can remove this
        # once Beam increases the pyarrow lower bound to a version that fixes CVE.
 -      'pyarrow-hotfix<1'
