@@ -12,7 +12,7 @@ source:
     - 0001-Relax-Pyarrow-pin.patch
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   host:
@@ -38,7 +38,7 @@ outputs:
         - pip {{ pip }}
         - cython >=0.28.1
         - crcmod >=1.7,<2.0
-        - dill >=0.3.1.1,<0.3.2
+        - dill >=0.3.1.1,<0.3.7
         - cloudpickle >=2.2.1,<2.3.0
         - fastavro >=0.23.6,<2
         - grpcio {{ grpcio }}
@@ -93,7 +93,7 @@ outputs:
         - apache_beam.testing.benchmarks.nexmark
         - apache_beam.testing.benchmarks.nexmark.models
         - apache_beam.testing.benchmarks.nexmark.queries
-        - apache_beam.tools
+- apache_beam.tools
         - apache_beam.transforms
         - apache_beam.typehints
         - apache_beam.utils
