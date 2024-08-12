@@ -1,0 +1,25 @@
+From 7cd8f72c062b0d09bfb0d0b799f12c26166cb1d4 Mon Sep 17 00:00:00 2001
+From: ArchanaShinde1 <Archana.Shinde1@ibm.com>
+Date: Mon, 12 Aug 2024 09:53:19 +0000
+Subject: [PATCH] Relax Pyarrow pin
+
+---
+ sdks/python/setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/sdks/python/setup.py b/sdks/python/setup.py
+index 36182cc1531..3dad4b32d60 100644
+--- a/sdks/python/setup.py
++++ b/sdks/python/setup.py
+@@ -141,7 +141,7 @@ except ImportError:
+ if sys.platform == 'win32' and sys.maxsize <= 2**32:
+   pyarrow_dependency = ''
+ else:
+-  pyarrow_dependency = 'pyarrow>=3.0.0,<12.0.0'
++  pyarrow_dependency = 'pyarrow>=3.0.0,<=14.0.1'
+ 
+ # Exclude pandas<=1.4.2 since it doesn't work with numpy 1.24.x.
+ # Exclude 1.5.0 and 1.5.1 because of
+-- 
+2.40.1
+
