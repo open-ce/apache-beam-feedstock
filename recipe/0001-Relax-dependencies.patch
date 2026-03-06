@@ -1,18 +1,26 @@
-From bfb5eaedb47ffdcfe5c96bfb02e0a7e6e6ebbe6a Mon Sep 17 00:00:00 2001
-From: ArchanaShinde1 <archana.shinde2504@gmail.com>
-Date: Tue, 27 Feb 2024 16:55:37 +0000
-Subject: [PATCH] Update patch
+From d888d95e428f2cfe9aabd516fbf5d563f35219c1 Mon Sep 17 00:00:00 2001
+From: Aman-Surkar1 <Aman.Surkar1@ibm.com>
+Date: Fri, 6 Mar 2026 12:48:16 +0000
+Subject: [PATCH] Changed pins
 
 ---
- sdks/python/pyproject.toml |  4 ++--
+ sdks/python/pyproject.toml |  6 +++---
  sdks/python/setup.py       | 18 +++++++++---------
- 2 files changed, 11 insertions(+), 11 deletions(-)
+ 2 files changed, 12 insertions(+), 12 deletions(-)
 
 diff --git a/sdks/python/pyproject.toml b/sdks/python/pyproject.toml
-index d185c45f619..0ebcb5bec0c 100644
+index d185c45f619..a296f079d4e 100644
 --- a/sdks/python/pyproject.toml
 +++ b/sdks/python/pyproject.toml
-@@ -26,11 +26,11 @@ requires = [
+@@ -19,18 +19,18 @@
+ # this is the minimum requirements for the build system to execute.
+ [build-system]
+ requires = [
+-    "setuptools",
++    "setuptools<81",
+     "wheel>=0.36.0",
+     "grpcio-tools==1.53.0",
+     "mypy-protobuf==3.5.0",
      # Avoid https://github.com/pypa/virtualenv/issues/2006
      "distlib==0.3.7",
      # Numpy headers
@@ -28,7 +36,7 @@ index d185c45f619..0ebcb5bec0c 100644
 \ No newline at end of file
 +build-backend = "setuptools.build_meta"
 diff --git a/sdks/python/setup.py b/sdks/python/setup.py
-index 7e6d2217d75..277fec1cf2f 100644
+index 7e6d2217d75..d129c408ba0 100644
 --- a/sdks/python/setup.py
 +++ b/sdks/python/setup.py
 @@ -148,17 +148,17 @@ elif sys.platform == 'win32' or sys.platform == 'cygwin':
